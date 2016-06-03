@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script> 
+<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
+<script>
+webshims.setOptions('forms-ext', {types: 'date'});
+webshims.polyfill('forms forms-ext');
+$.webshims.formcfg = {
+en: {
+    dFormat: '-',
+    dateSigns: '-',
+    patterns: {
+        d: "yy-mm-dd"
+    }
+}
+};
+</script>
+    <title>Sign up</title>
+  </head>
+<body>
+<form>
+  <p>First name:</p> <input type="text" name="firstname" id="firtname" value="" required />
+  <p>Last name:</p> <input type="text" name="lastname" id="lastname" value="" required/>
+  <p>Email:</p> <input type="email" name="email" id="email" required placeholder="Enter a valid email address">
+
+  <p>Birthday:</p> <input type="date" name="birthday" id="birthday" value="" required/>
+
+  <p>Favourite sport:</p><select required id="sport" name="sport">
+<option value="">Choose</option>
+  <option value="fut">Football</option>
+  <option value="bas">Basquetball</option>
+  <option value="ten">Tennis</option>
+  <option value="cic">cycling</option>
+</select>
+  <p>About me:</p> <textarea name="aboutme" id="aboutme" cols="25" rows="3"></textarea>
+  <br>
+  <input type="submit" value="Submit" />
+  <input type="reset" value="Reset">
+</form>
+</body>
+
+</html>

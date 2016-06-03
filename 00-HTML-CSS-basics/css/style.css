@@ -1,0 +1,117 @@
+
+
+html
+{
+	font-size: 14px;
+	font-family: sans-serif, serif;
+}
+
+header{
+  position:top;
+  text-align:center;
+}
+
+
+header, footer
+{
+	background: green;
+	text-align: center;
+}
+
+aside, nav
+{
+	background: grey;
+}
+
+nav{
+  border:5px solid #CCC;
+  width: auto;
+  padding:1em;
+  position:relative;
+  display:inline-block;
+  float:left;
+}
+
+aside{
+  border:5px solid #CCC;
+  width: auto;
+  padding:1em;
+  position:relative;
+  display:inline-block;
+  float:right;
+}
+
+section{
+	width: auto;
+	 position:relative;
+  display:inline-block;
+}
+
+
+header{
+  position:top;
+  text-align:center;
+}
+
+footer{
+  position:bottom;
+  text-align: center;
+    clear: both;
+
+}
+
+header, footer{
+	background: red;
+	text-align: center;
+}
+
+nav, aside,  section, footer, header
+  {
+  margin: 10px 5px 10px 5px;
+}
+p{
+	border-radius: 6px;
+  	color: #fff;
+  	display: block;
+    padding: 24px 15px;
+  	text-align: center;
+}
+
+
+
+.header{
+	font-size: 46px;
+
+}
+
+.footer{
+
+	font-size: 10px;
+}
+
+.content{
+	font-size: 14px;
+}
+
+.navigation{
+	font-size: 12px;
+}
+
+.sidebar{
+	font-size: 10px;
+}
+
+[class$="r"] {
+    background: #E5097F;
+} 
+
+[class*="a"]:not([class$="r"]) {
+    background: blue;
+}
+
+
+
+.content {
+  background: lightgrey;
+
+}
