@@ -1,0 +1,96 @@
+.personal
+{
+	display: block; 
+  vertical-align: middle;
+}
+
+.topic
+{
+
+	margin-top:30px;
+
+	background: -moz-linear-gradient(right, white, lightgrey); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, white, lightgrey); /* Standard syntax (must be last) */
+	display: inline-block;
+float:left;
+	margin-left:20px;
+	border-radius:30px;
+
+
+}
+
+.profile
+{
+	text-align:center;
+	background: -moz-linear-gradient(right, white, lightgrey); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, white, lightgrey); /* Standard syntax (must be last) */
+	border-radius:30px;
+	margin-top:30px;
+	padding: 10px;
+
+
+}
+body
+{
+	font-family: sans-serif;
+}
+
+img{
+    display: block;
+    margin: 0 auto;
+    border-radius:10px;
+    box-shadow: 5px 5px 5px black;
+    -moz-box-shadow: 0px 5px 5px black;
+     -webkit-box-shadow: 0px 5px 5px black;
+
+     -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+
+img:hover {
+  width: 144px;
+  height: 220px;
+  border: 5px solid #000;
+  border-radius: 5px;
+ /*    https://designshack.net/articles/css/joshuajohnson-2/   */
+}
+
+header
+{
+	text-align:center;
+	background: green;
+	font-size: 30px;
+	border-radius:30px;
+}
+
+ol {
+   list-style: none;
+ }
+
+li {
+   counter-increment: tm;
+   margin-bottom: 5px;
+ }
+
+li:before {
+   margin-right: 5px;
+   content: counter(tm);
+   background: lightblue;
+   border-radius: 100%;
+   color: white;
+   width: 1.2em;
+   text-align: center;
+   display: inline-block;
+ }
+
+ li:hover
+ {
+ 	font-size: 20px;
+ }
+
+
+}
+ 

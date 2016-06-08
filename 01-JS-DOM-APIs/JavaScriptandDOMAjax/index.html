@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<title>Javascript Ajax</title>
+</head>
+<body onload="showElement()">
+
+
+<section>
+	<h1 id="hide">Response</h1>
+	<form action="javascript:getResponse()">
+		<section>
+		    <h4 id="hide2">http://api.icndb.com/jokes/random</h4>
+			<h4 id="result">Result text</h4>
+		</section>
+			<input type="text" placeholder="http://api.icndb.com/jokes/random" id="url" required="">
+			<button type="submit">Response</button>
+		</form>
+</section>
+
+</body>
+</html>

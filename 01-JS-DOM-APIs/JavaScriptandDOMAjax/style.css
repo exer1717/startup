@@ -1,0 +1,26 @@
+section, div
+{
+	text-align: center;
+}
+
+#hide 
+{
+	display: none;
+}
+#hide2
+{
+	display: none;
+}
+
+#result
+{
+	display: none;
+}
+.error{
+	color: red;
+}
+
+.success
+{
+	color: green;
+}
