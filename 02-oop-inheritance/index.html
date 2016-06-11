@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="actor.js"></script>
+    <script type="text/javascript" src="logger.js"></script>
+    <script type="text/javascript" src="eventEmitter.js"></script>
+    <script type="text/javascript" src="movie.js"></script>
+    <meta charset="UTF-8">
+    <title>Movies ECMAScript</title>
+
+</head>
+<body>
+	<section class="main">
+    <h1>Movies library</h1>
+
+    <p id="movie1"></p>
+    <p id="actor1"></p>
+        <br></br>
+    <p id="movie2"></p>
+    <p id="actor2"></p>
+
+    <script type="text/javascript">
+
+        let terminator = new Movie("Terminator", 1984, 90);
+        let logger = new Logger();
+        terminator.on('play', logger.log);
+        console.log(terminator);
+        terminator.play(); 
+
+        let arnold = new Actor('Arnold Schwarzenegger', 50);
+        let otherCast = [
+            new Actor('Paul Winfield', 50),
+            new Actor('Michael Biehn', 50),
+            new Actor('Linda Hamilton', 50)
+        ];
+        terminator.addCast(arnold);
+        terminator.addCast(otherCast);
+        console.log(terminator);
+        terminator.share('mauricio lopez');
+        document.getElementById('movie1').innerHTML = "Title: "+terminator.title;
+        document.getElementById('actor1').innerHTML = "Actor: "+arnold.namee;
+
+        let bttf = new Movie("Back to the Future", 1984, 87);
+        bttf.on('play', logger.log);
+        console.log(bttf);
+        bttf.play(); 
+
+        let doc = new Actor('Doc Brown', 70);
+        otherCast = [
+            new Actor('Martyn Mcfly', 50),
+            new Actor('Biff Tanen', 52),
+            new Actor('Loraine Mcfly', 49)
+        ];
+        bttf.addCast(doc);
+        bttf.addCast(otherCast);
+        console.log(bttf);
+        bttf.share('fede arriaga');
+        document.getElementById('movie2').innerHTML = "Title: "+bttf.title;
+        document.getElementById('actor2').innerHTML = "Actor: "+doc.namee;
+    </script>
+</section>
+</body>
+</html>
