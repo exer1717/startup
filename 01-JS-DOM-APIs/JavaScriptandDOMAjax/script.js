@@ -8,6 +8,7 @@ function getResponse()
 {
 	var config = new Object();
 	config.url = document.getElementById("url").value;
+	//config.url = "http://api.icndb.com/jokes/random";
 	var promise = new Promise(function(resolve,reject)
 	{
 		var call = $.ajax({
@@ -17,14 +18,15 @@ function getResponse()
 				success: function(responseText){
 					$('section').removeClass("error");
 					$('section').addClass("success");
-					Promise.resolve($("#result").html(responseText));
-					document.getElementById("#result").style.display = "block";
+					obj = JSON.parse(responseText);
+					Promise.resolve($("#result").html(obj.value.joke));
+					
 			},
 				error: function(){
 					$('section').removeClass("success");
 					$('section').addClass("error");
 					Promise.reject($("#result").html("ERROR url not resolve"));
-					document.getElementById("#result").style.display = "block";
+					
 			}
 		})
 	})
