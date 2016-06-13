@@ -27,9 +27,7 @@
         let terminator = new Movie("Terminator", 1984, 90);
         let logger = new Logger();
         terminator.on('play', logger.log);
-        console.log(terminator);
         terminator.play(); 
-
         let arnold = new Actor('Arnold Schwarzenegger', 50);
         let otherCast = [
             new Actor('Paul Winfield', 50),
@@ -40,14 +38,13 @@
         terminator.addCast(otherCast);
         console.log(terminator);
         terminator.share('mauricio lopez');
+        terminator.like('mauricio lopez');
         document.getElementById('movie1').innerHTML = "Title: "+terminator.title;
         document.getElementById('actor1').innerHTML = "Actor: "+arnold.namee;
 
         let bttf = new Movie("Back to the Future", 1984, 87);
         bttf.on('play', logger.log);
-        console.log(bttf);
         bttf.play(); 
-
         let doc = new Actor('Doc Brown', 70);
         otherCast = [
             new Actor('Martyn Mcfly', 50),
@@ -58,6 +55,7 @@
         bttf.addCast(otherCast);
         console.log(bttf);
         bttf.share('fede arriaga');
+        bttf.like('fede arriaga');
         document.getElementById('movie2').innerHTML = "Title: "+bttf.title;
         document.getElementById('actor2').innerHTML = "Actor: "+doc.namee;
     </script>

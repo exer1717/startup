@@ -24,7 +24,7 @@ class Movie extends EventEmitter
     }
 
     
-     addCast(cast){
+  addCast(cast){
     let self = this
     if(Array.isArray(cast)){
       cast.forEach(function(actor){
@@ -38,12 +38,24 @@ class Movie extends EventEmitter
      share(friendName){
         let first = {Share: this.title};
         let last = {with: friendName};
-        console.log(first.Share);
-        console.log(last.with);
+        //console.log(first.Share);
+        //console.log(last.with);
         let social = Object.assign(first,last);
         console.log(social);
+        console.log("Share " +this.title+ " with "+ friendName);
+    }
+
+    like(friendName){
+        let first = {Share: this.title};
+        let last = {with: friendName};
+       // console.log(first.Share);
+        //console.log(last.with);
+        let social = Object.assign(first,last);
+        console.log(social);
+        console.log(friendName+ " likes the movie "+ this.title);
     }
 }
+
 
 
 
