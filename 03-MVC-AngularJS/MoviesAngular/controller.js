@@ -3,10 +3,12 @@ app.controller('MainController', ['$scope', function($scope)
 
   var indexx;
 
+  //localStorage.clear();
+
   $scope.appTitle = "Globant Movies Library";
   $scope.saved = localStorage.getItem('movies');
   //$scope.movies = (localStoragead.getItem('movies') !== null) ? JSON.parse($scope.saved) : [{
-  if(localStorage.getItem('movies') !== "undefined" || localStorage.getItem('movies') !== "null")
+  if(localStorage.getItem('movies') !== "undefined" && localStorage.getItem('movies') !== "null")
    {
 	 $scope.movies = JSON.parse($scope.saved);
    }
