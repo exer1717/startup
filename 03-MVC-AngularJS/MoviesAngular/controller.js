@@ -3,12 +3,11 @@ app.controller('MainController', ['$scope', function($scope)
 
   var indexx;
 
-  //localStorage.clear();
-
+  $scope.appButton= "Add Movie"
   $scope.appTitle = "Globant Movies Library";
   $scope.saved = localStorage.getItem('movies');
   //$scope.movies = (localStoragead.getItem('movies') !== null) ? JSON.parse($scope.saved) : [{
-  if(localStorage.getItem('movies') !== "undefined" && localStorage.getItem('movies') !== "null")
+  if(localStorage.getItem('movies') !== undefined && localStorage.getItem('movies') !== null)
    {
 	 $scope.movies = JSON.parse($scope.saved);
    }
@@ -50,6 +49,7 @@ app.controller('MainController', ['$scope', function($scope)
 		  }];
 		$scope.movies[indexx] = o[0];
 		$scope.edit = false;
+		$scope.appButton="Add Movie";
 		 //return;
 	}
 	else if(!$scope.edit)
@@ -80,6 +80,7 @@ app.controller('MainController', ['$scope', function($scope)
 		$scope.duration = $scope.movie.duration ;
 		$scope.img = $scope.movie.img;
         $scope.edit = true;
+        $scope.appButton = "Edit Movie"
     };
    
    $scope.deleteMovie = function (index) {
