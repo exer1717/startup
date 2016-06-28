@@ -1,0 +1,24 @@
+body
+{
+	text-align:center;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+.inputText {
+    width: 300px;
+    height: 150px;
+    resize:none;
+}
+
+.title
+{
+	background-color: red;
+	color: white;
+}
+
+.subtitle
+{
+	background-color: green;
+	color: white;
+}

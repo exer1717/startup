@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+	<link href="style.css" rel="stylesheet" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Html5 apis</title>
+</head>
+<body >
+<header class="jumbotron header">
+	<div class="row">
+			<div class= "logo col-sm-2">
+				<svg height="70" width="70">
+				 	 <defs>
+				   		 <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="10%">
+				     		 <stop offset="0%"
+				     			 style="stop-color:red;stop-opacity:1" />
+				     		 <stop offset="100%"
+				      			style="stop-color:white;stop-opacity:1" />
+				   		 </linearGradient>
+				 	 </defs>
+				  	<circle cx="30" cy="30" r="25" fill="url(#grad1)"
+				  		stroke="green" stroke-width="2" />
+				  	<text fill="green" font-size="15" font-family="Verdana"
+				  		x="13" y="35" >SVG</text>
+				</svg>
+
+			</div>
+
+			<div class= "title col-sm-10"> Logo SVG</div>
+	</div>
+	<br>
+
+	<div class= "subtitle"> Note App </div>
+	<br>
+</header>
+		
+	<section class="jumbotron">
+			
+			<textarea id="input" class="inputText" placeholder="Please write something"></textarea>
+			<br>
+			<button id="save" class="saveBtn btn btn-success">Save</button>
+			<button id="clear" class="clearBtn btn btn-danger" type="reset">Clear</button>
+			<button id="show" class="showBtn btn btn-info">Show</button>
+
+		<h1>this text is for drag and drop</h1>
+		<br>
+		<h4>output local storage</h4>
+		<p id="showP"></p>
+
+
+
+	</section>
+
+	<div id="output"></div>
+		
+		<script type="text/javascript">
+			
+			var wsUri = "ws://echo.websocket.org/";
+			  var output;
+
+			  function init()
+			  {
+			    output = document.getElementById("output");
+			    testWebSocket();
+			  }
+
+			  function testWebSocket()
+			  {
+			    websocket = new WebSocket(wsUri);
+			    websocket.onopen = function(evt) { onOpen(evt) };
+			    websocket.onclose = function(evt) { onClose(evt) };
+			    websocket.onmessage = function(evt) { onMessage(evt) };
+			    websocket.onerror = function(evt) { onError(evt) };
+			  }
+
+			  function onOpen(evt)
+			  {
+			    writeToScreen("CONNECTED");
+			    doSend("WebSocket rocks");
+			  }
+
+			  function onClose(evt)
+			  {
+			    writeToScreen("DISCONNECTED");
+			  }
+
+			  function onMessage(evt)
+			  {
+			    writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>');
+			    websocket.close();
+			  }
+
+			  function onError(evt)
+			  {
+			    writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
+			  }
+
+			  function doSend(message)
+			  {
+			    writeToScreen("SENT: " + message);
+			    websocket.send(message);
+			  }
+
+			  function writeToScreen(message)
+			  {
+			    var pre = document.createElement("p");
+			    pre.style.wordWrap = "break-word";
+			    pre.innerHTML = message;
+			    output.appendChild(pre);
+			  }
+
+			  window.addEventListener("load", init, false);
+
+		</script>
+
+		<script src="script.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>
