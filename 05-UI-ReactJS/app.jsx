@@ -1,5 +1,5 @@
 
-var Movie = React.createClass({
+let Movie = React.createClass({
     getInitialState: function(){
         return {
                 edition: false 
@@ -10,8 +10,8 @@ var Movie = React.createClass({
     },
     save: function(){
         //debugger;
-        var nuevoNombre = this.refs.nuevoNombre.getDOMNode().value
-        var nuevaPic = this.refs.nuevaPic.getDOMNode().value
+        let nuevoNombre = this.refs.nuevoNombre.getDOMNode().value
+        let nuevaPic = this.refs.nuevaPic.getDOMNode().value
         this.props.onChange(nuevoNombre, nuevaPic, this.props.index);
         this.setState({edition: false});
     },
@@ -23,26 +23,26 @@ var Movie = React.createClass({
     },
     editView: function(){
         return ( 
-            <div className="movie">
+            <section className="movie">
             <input ref="nuevoNombre" type="text" className="form-control margin-edit1" placeholder="Nuevo nombre..." defaultValue={this.props.nombre}/>
             <input ref="nuevaPic" type="text" className="form-control margin-edit2" placeholder="Nuevo nombre..." defaultValue={this.props.pic}/>
-                <div>
+                <article>
                     <div className="glyphicon glyphicon-ok-circle blue" onClick={this.save} />
                     <div className="glyphicon glyphicon-remove-circle red" onClick={this.cancel} />
-                </div>
-            </div>
+                </article>
+            </section>
             );
     },
     normalView: function(){
         return (
-            <div className="movie">
+            <section className="movie">
                 <h3 className="bg-success">{this.props.nombre}</h3>
                 <img className="thumbnail" src={this.props.pic} />
-                <div>
+                <article>
                     <div className="glyphicon glyphicon-pencil blue" onClick={this.edit} />
                     <div className="glyphicon glyphicon-trash red" onClick={this.remove} />
-                </div>
-            </div>
+                </article>
+            </section>
             );
     },
     render: function() {
@@ -55,7 +55,7 @@ var Movie = React.createClass({
     }
 });
 
-var MovieList = React.createClass({
+let MovieList = React.createClass({
     getInitialState: function() {
         return {
             movies: [
@@ -69,8 +69,8 @@ var MovieList = React.createClass({
 
     add: function(movie) {
        //debugger;
-       var nuevaMovie= this.refs.nuevaMovie.getDOMNode().value;
-       var nuevaPic= this.refs.nuevaPic.getDOMNode().value;
+       let nuevaMovie= this.refs.nuevaMovie.getDOMNode().value;
+       let nuevaPic= this.refs.nuevaPic.getDOMNode().value;
         if (nuevaMovie == "")
         {
             nuevaMovie = "New movie";
@@ -79,45 +79,44 @@ var MovieList = React.createClass({
         {
                 nuevaPic = "https://pbs.twimg.com/profile_images/700092818174431232/fQCnNXZc.png";        
         }
-        var obj = {name: nuevaMovie, pic: nuevaPic};
-        var arr = this.state.movies;
+        let obj = {name: nuevaMovie, pic: nuevaPic};
+        let arr = this.state.movies;
         arr.push(obj);
         this.setState({movies: arr});
         this.refs.nuevaMovie.value = "";
         this.refs.nuevaPic.value = "";
     },
     update: function(nuevoNombre, nuevaPic, i) {
-        //debugger;
-        var arr = this.state.movies;
-        arr[i] = {name: nuevoNombre, pic: nuevaPic};
-        this.setState({movies:arr});
+        
+        this.state.movies = {name: nuevoNombre, pic: nuevaPic};
+        this.setState({movies:this.state.movies[i]});
     },
     remove: function(i){
-        var arr = this.state.movies;
+        let arr = this.state.movies;
         arr.splice(i, 1);
         this.setState({movies: arr});
     },
     showMovies: function(movie, i) {
        //debugger;
         return (
-                <Movie key={i}
+                <Movie
                     index={i}
                     nombre={movie['name']}
                     pic={movie['pic']}
                     onChange={this.update}
                     onRemove={this.remove}>
+                    
                     {i+1}
                 </Movie>
             );
     },
     render: function() {
         return(
-            <div>
+            <section>
                 <header>
-                    <h1 className="title header">Movies ReactJS <img className="icono" src="react.png" /> </h1> 
-                    
+                    <h1 className="title header">Movies ReactJS <img className="icono" src="react.png" /> </h1>    
                 </header>
-                <div className="input-style">
+                <article className="input-style center">
                     <h1>Movies</h1>
                     
                     <i>Total Movies: {this.state.movies.length}</i>
@@ -125,13 +124,12 @@ var MovieList = React.createClass({
                     <input ref="nuevaMovie" type="text" className="form-control" placeholder="Add title" />
                     <input ref="nuevaPic" type="text" className="form-control" placeholder="Add url pic" />
                     <button className="btn btn-default btn-success" onClick={this.add}>Add Movie</button>
-                </div>
+                </article>
 
-                <div className="center">
-                {this.state.movies.map(this.showMovies)}
-                </div>
-            </div>
-    
+                <article className="center">
+                    {this.state.movies.map(this.showMovies)}
+                </article>  
+            </section> 
             )
     }
 });
